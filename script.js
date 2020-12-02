@@ -18,8 +18,7 @@ kurssinappi.addEventListener('click', e =>{
     setTimetout(() => kurssinappi.value = 'Lisää tieto', 3000);
   }else{
     const li = document.createElement('li');
-    li.appendChild(document.createTextNode(`${nimiSisalto.value}: $
-    {asiaSisalto.value}`));
+    li.appendChild(document.createTextNode(`${nimiSisalto.value}: ${asiaSisalto.value}`));
     viesti.appendChild(li);
     nimiSisalto.value = '';
     asiaSisalto.value = '';
@@ -28,7 +27,7 @@ kurssinappi.addEventListener('click', e =>{
 
 const merkitseValmiit = document.querySelector('.merkinta');
 
-merkitseValmiit.addEventListener('click', e=>) {
+merkitseValmiit.addEventListener('click', e=> {
   e.preventDefault();
 
   if(document.querySelector('#tehta').checked){
@@ -37,7 +36,7 @@ merkitseValmiit.addEventListener('click', e=>) {
     ul.children[0].innerHTML = '<input type="checkbox" id="tehta">HTML';
   }
   if(document.querySelector('#tehtb').checked){
-    ul.children[1].innerHTML = '<input type="checkbox" id="tehtb">CSS tunnit pidetty';
+    ul.children[1].innerHTML = '<input type="checkbox" id="tehtb"checked>CSS tunnit pidetty';
   }else{
     ul.children[1].innerHTML = '<input type="checkbox" id="tehtb">CSS';
   }
