@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Pvm');
+        data.addColumn('number', 'Asteet');
+        data.addRows([
+          ['1.1.2021', 22],
+          ['2.1.2021', 21],
+          ['3.1.2021', 25],
+          ['4.1.2021', 23],
+          ['5.1.2021', 22]
+        ]);
+
+        var options = {'title':'Lämpötila',
+                       'width':1200,
+                       'height':300};
+
+        var dataHum = new google.visualization.DataTable();
+        dataHum.addColumn('string', 'Pvm');
+        dataHum.addColumn('number', '%');
+        dataHum.addRows([
+          ['1.1.2021', 45],
+          ['2.1.2021', 40],
+          ['3.1.2021', 41],
+          ['4.1.2021', 39],
+          ['5.1.2021', 42]
+        ]);
+
+        var optionsHum = {'title':'Ilmankosteus',
+                       'width':1200,
+                       'height':300};
+
+        var chart = new google.visualization.LineChart(document.getElementById('chartTemp_div'));
+        chart.draw(data, options);
+
+        var chartHum = new google.visualization.ColumnChart(document.getElementById('chartHum_div'));
+        chartHum.draw(dataHum, optionsHum);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="chartTemp_div"></div>
+    <div id="chartHum_div"></div>
+  </body>
+</html>
